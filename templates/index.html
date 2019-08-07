@@ -1,0 +1,66 @@
+{% extends "base.html" %}       
+	{% block content %}
+
+		<!--================Home Banner Area =================-->
+        <section class="banner_area">
+            <div class="box_1620">
+				<div class="banner_inner d-flex align-items-center">
+					<div class="container">
+						<div class="banner_content text-center">
+							<h2>Breve Explicacion</h2>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+        <!--================End Home Banner Area =================-->
+
+        <section class="sample-text-area">
+			<div class="container">
+				<h3 class="text-heading title_color">Menu</h3>
+				<p class="sample-text">
+					Tome una plantilla libre llamada <b>MeetMe</b> la cual se puede usar libremente siempre y cuando no se elimine el footer que contiene informacion sobre el autor. Tome la parte del menu superior y cree un template base para poder heredarlo en los siguientes templates que iba a usar, de esta forma es mucho  mas facil crear menus. Cabe aclarar que todo lo relacionado al frontend esta basado en el template, excepto en algunos casos como por ejemplo, al desabilitar un boton este se veia igual, por lo que retire su clase y se ve como un simple boton de HTML. No modifique los iconos de los input-select por lo que en todos se puede ver un avioncito.
+				</p>
+				<p class="sample-text">
+					El menu esta compuesto por cada uno de los requerimientos del sistema, con 2 templates adicionales, el home que es el que uso para explicar el aplicativo, y el about el cual es literal el del template, solo lo deje para que no se viera tan vacio. Hay 2 templates de registro, uno para registrar propietarios de vehiculos y otro para registrar vehiculos. Finalmente el menu de reportes tiene 3 submenus pero solo 2 templates, el del csv es simplemente un enlace para general y descargar el archivo csv.
+				</p>
+				<br>
+				<h3 class="text-heading title_color">Registro de propietario</h3>
+				<p class="sample-text">
+					Es un formulario bastante simple, en donde al momento de cargar el template envio todos los tipos de documento para crear un input-select con un template-tag for, solo deje el numero de documento como PK en lugar de usar una llave compuesta con esta y el tipo de documento, por lo que al momento de validar la existencia de un propietario solo se usa el numero de documento. Desde el front-end valido su existencia a traves de una peticion ajax. En mi ambiente local el archivo es guardado correctamente en la carpeta media, sin embargo al desplegar en Heroku se crea el registro pero no guarda el documento.
+					Al parecer guarda el documento pero despues lo borra, por politicas de Heroku por lo que este recomienda usar un medio externo para guardar archivos en el media, como una instancia S3 de AWS. Ya que en ningun momento se descargan estos archivos, no considere necesario crear un bucket para esto, por lo que en la base de datos se guarda la ruta del archivo, pero en Heroku no se encuentra el archivo.
+					El boton de registro esta desabilitado hasta que se ingrese un numero de documento que no se haya registrado, de esta forma se evita que envien el formulario a pesar de que se muestra el mensaje de que ese propietario ya existe.
+				</p>
+				<br>
+				<h3 class="text-heading title_color">Registro de Vehiculos</h3>
+				<p class="sample-text">
+					Bastante similar al registro de propietarios, el backend es igual, lo unico que cambia es que en este se valida que la placa del vehiculo ingresada NO exista y el numero de documento del propietario SI exista, de esta forma se habilita el boton de registrar, la longitud de la placa es de 6 caracteres, al intentar una longitud diferente no enviara el formulario.
+				</p>
+				<br>
+				<h3 class="text-heading title_color">Reportes</h3>
+				<p class="sample-text">
+					Para el reporte de la cantidad de vehiculos en cadad marca utilice una tabla sencilla, la cual lleno a traves del template-tag for. Su backend es bastante simple, solo queries por ORM, trato los datos y los guardo en un diccionario. Para el color de la barra de porcentaje solo genere un aleatorio entre 1 y 4, por lo que cada vez que se cargue se tendra un color diferente.
+				</p>
+				<p>
+					Para listar los vehiculos por marca, hice algo mas elaborado. El usuario selecciona la marca que quiere ver, y utilizando el Django REST framework filtro los datos, al obtenerlos en formato JSON los pude utilizar en un datatable, no sin antes utilizar una libreria que me permitiera formatear el JSON con las necesidades del datatable. Fue bastante interesante la elaboracion de este reporte y me gusto mucho el resultado.
+				</p>
+				<p>
+					Finalmente el reporte que exporta todos los vehiculos a un CSV fue elaborado recorriendo los resultados de un QuerySet y escribiendo el CSV renglon a renglon, queria utilizar nuevamente el REST framework pero no me fue posible porque el CSV generado no me creaba renglones, solo columnas. Me decepcione un poco por no poder sacarlo como lo queria.
+				</p>
+				<br>
+				<h3 class="text-heading title_color">Comentarios en general</h3>
+				<p class="sample-text">
+					Nunca habia utilizado Heroku y fue bastante interesante, me dio bastantes problemas pero lo logre y aprendi mucho, por lo general he usado servidores AWS utilizando servidores web como Apache o NGINX. La prueba en general estuvo sencilla, pero cascarera debo admitir, tambien debo admitir que hace mucho que no hacia frontend por lo que me demore mucho mas de lo que debia, los Forms de Django no los suelo utilizar y el REST framework he caido en cuenta con esa prueba que esta mal impementado donde laboro actualmente, por eso no poseo mucha experiencia en este.
+				</p>
+				<p>
+					Me llevo mucho mas tiempo del que pensaba, puesto que tuve que recordar lo que sabia de frontend, y con ello quiero decir volver a aprender pero fue muy interesante, sin embargo no pude cumplir muchas cosas, como todo lo referente a Tests, debo admitir que no se hacer pruebas unitarias, integracion o similares, y este es uno de los motivos por los cuales quiero cambiar de empleo, ya que hace seis meses me dieron el proyecto para migrar el repositorio a Amazon y apartir de ahi elaborar todo para que nuestro proyecto fuera CI/CD, pero nunca se me destino el tiempo o a alguno de los demas para desarrollar esto, por lo que no pude aprender nada de este tema,
+					intente aprender por mi cuenta, pero siento que sin alguien que me asesore y sin poder probar en un ambiente real no voy a avanzar mucho en este tema. El Dockerfile no lo pude generar tampoco porque nunca he trabajado con ello, y debido al poco tiempo que tuve no pude aprender sobre ello.
+				</p>
+				<br>
+				<h3 class="text-heading title_color">Agradecimientos</h3>
+				<p>
+					Finalmente quiero agradecerles por dejarme presentar la prueba, recorde muchas cosas y aprendi muchas otras mas, hacia tiempo que no tenia un reto y me emocione mucho completandolo.
+				</p>
+			</div>
+		</section>
+    {% endblock %}
