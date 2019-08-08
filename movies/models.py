@@ -20,3 +20,8 @@ class Movie(AuditLog):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, null = False, blank = False)
     released_date = models.DateField()
     director = models.CharField(max_length = 100, null=False, blank = False)
+    imagefile = models.FileField(upload_to='movies_pictures/%Y/%m/%d/', null = True)
+
+class UserMovies(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null = False, blank = False, related_name = 'user_movie')
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null = False, blank = False, related_name = 'favorite_movie')

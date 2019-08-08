@@ -8,4 +8,6 @@ urlpatterns = [
     path('movie_detail/<int:pk>/', views.MovieDetail.as_view()),
     path('edit_movie/<int:pk>/', views.edit_movie, name='edit_movie'),
     path('manage_genres', views.GenresList.as_view(), name='manage_genres'),
+    path('recommended_movies', views.recommended_movies, name='recommended_movies'),
+    path('add_user_movie', views.add_user_movie, name='add_user_movie'),
 ]

@@ -28,6 +28,10 @@
               <div class="mt-10">
                 <input type="text" name="director" placeholder="Director" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Director'" required class="single-input">
               </div>
+
+              <div class="mt-10">
+                <input type="file" name="imagefile" accept="image/*" required>
+              </div>
               <div class="form-select mt-10">
                 <select name="genre">
                 {% for genre in genres %}
@@ -35,7 +39,7 @@
                 {% endfor %}
               </div>
               <div class="mt-10">
-                <input type="submit" value="Create movie">
+                <input type="submit" value="Create movie" class="genric-btn info">
               </div>
             </form>
           </div>

@@ -45,7 +45,7 @@ def sign_up(request):
                     last_name = data['last_name'],
                     password = make_password(data['password']),
                     is_superuser = False)
-        return redirect('home')
+        return redirect('log_in')
     else:
         return render(request, "sign_up.html", context)
 
