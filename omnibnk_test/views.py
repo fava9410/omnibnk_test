@@ -21,6 +21,9 @@ def log_in(request):
             if user.is_active:
                 login(request, user)
                 print("me loguee!!")
+                next_url = request.GET.get('next')
+                if next_url:
+                    return HttpResponseRedirect(next_url)
                 return HttpResponseRedirect(reverse('home'))
             else:
                 error_message = 'Your account is inactived!'
@@ -43,7 +46,6 @@ def sign_up(request):
                     last_name = data['last_name'],
                     password = make_password(data['password']),
                     is_superuser = False)
-        print("guarde")
         return redirect('home')
     else:
         return render(request, "sign_up.html", context)
