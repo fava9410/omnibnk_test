@@ -11,7 +11,9 @@ $( document ).ready(function() {
                 // The `rows`argument is an object representing all the data for the current row.
                 "render": function ( data, type, row ) {
                     return "<i class='material-icons' onclick=delete_movie('"+data+"') \
-										style='cursor: pointer' data-pk='" + data + "' >delete</i>";
+										style='cursor: pointer' data-pk='" + data + "' >delete</i> \
+										<i class='material-icons' onclick=window.location.replace('/movies/edit_movie/"+data+"') \
+										style='cursor: pointer' data-pk='" + data + "' >mode_edit</i>";
                 },
                 "targets": -1  // -1 is the last column, 0 the first, 1 the second, etc.
             }

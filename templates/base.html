@@ -40,18 +40,9 @@
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 								<li class="nav-item active"><a class="nav-link" href="/home">Home</a></li>
-								<li class="nav-item"><a class="nav-link" href="about">About</a></li>
                 {% if user.is_authenticated %}
 								<li class="nav-item"><a class="nav-link" href="/movies/create_movie">Create movie</a></li>
                 <li class="nav-item"><a class="nav-link" href="/movies/all_movies">List all movies</a></li>
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="vehicles_by_brand_report">Vehicles by Brand</a></li>
-										<li class="nav-item"><a class="nav-link" href="list_vehicles_by_brand_report">List Vehicles by Brand</a></li>
-										<li class="nav-item"><a class="nav-link" href="export_report_to_csv">Vehicles CSV</a></li>
-									</ul>
-								</li>
                 <li class="nav-item"><a class="nav-link" href="/log_out">Log out</a></li>
                 {% else %}
                   <li class="nav-item"><a class="nav-link" href="/sign_up">Sign up</a></li>

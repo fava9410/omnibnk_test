@@ -8,9 +8,6 @@ class AuditLog(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, null = False, blank = False, related_name = 'creater')
     updated_at = models.DateTimeField(auto_now = True)
     updated_by = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank = True, related_name = 'updater')
-    deleted = models.BooleanField(default = False)
-    deleted_at = models.DateTimeField(null = True)
-    deleted_by = models.ForeignKey(User, on_delete=models.CASCADE, null = True, blank = True, related_name = 'deleter')
 
     class Meta:
         abstract = True
