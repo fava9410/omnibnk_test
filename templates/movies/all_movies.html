@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+  {% load static %}
+  {% block content %}
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+
+  <section class="banner_area">
+      <div class="box_1620">
+        <div class="banner_inner d-flex align-items-center">
+          <div class="container">
+            <div class="banner_content text-center">
+              <h2>All Movies!</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <div class="whole-wrap">
+      <div class="container">
+          <div class="section-top-border">
+              <div class="progress-table-wrap">
+                  <table id="movies" class="table table-striped table-bordered" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th data-data="name">Name</th>
+                              <th data-data="director">Director</th>
+                              <th data-data="genre">Genre</th>
+                              <th data-data="released_date">Released Date</th>
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="{% static 'js/list_all_movies.js' %}"></script>
+  {% endblock %}
+|

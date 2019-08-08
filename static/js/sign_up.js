@@ -1,28 +1,28 @@
 $( document ).ready(function() {
-    var owner_exists = true;
-    $("#owner_submit").prop("disabled",owner_exists);
-    $("#number_document").val("")
+    var username_exists = true;
+    $("#register_submit").prop("disabled",username_exists);
+    $("#username").val("")
 
-	$("#number_document").on("change keyup paste", function(){
+	  $("#username").on("change keyup paste", function(){
 
         $.ajax({
             type:"POST",
             cache:false,
-            url:"check_owner",
+            url:"check_username",
             data:{
-                "number_document":$("#number_document").val()
+                "username":$("#username").val()
                 },
             success: function (response) {
 
                 if(response == "True"){
-                    owner_exists = true
+                    username_exists = true
                     $("#error_message").text("El propietario ya existe");
                 } else {
-                    owner_exists = false;
+                    username_exists = false;
                     $("#error_message").text("El propietario no ha sido registrado");
                 }
 
-                $("#owner_submit").prop("disabled",owner_exists);
+                $("#register_submit").prop("disabled",username_exists);
             }
         });
     });
