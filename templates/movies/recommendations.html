@@ -22,8 +22,9 @@
         <div class="row gallery-item">
           {% for movie in  movies %}
           <div class="col-md-4">
-            <div class="single-gallery-image" style="background: url(/media/{{movie.imagefile}});"
-            onclick="add_user_movie({{movie.id}})" id="img_{{movie.id}}"></div>
+            <div class="single-gallery-image" style="background: url(/media/{{movie.imagefile}}); cursor:pointer;"
+              onclick="add_user_movie({{movie.id}})" id="img_{{movie.id}}" title="Add movie to your favorite list">
+            </div>
           </div>
           {% endfor %}
         </div>
