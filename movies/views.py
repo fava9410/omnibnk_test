@@ -16,6 +16,7 @@ def create_movie(request):
             valid_form = form.save(commit = False)
             valid_form.created_by_id = request.user.id
             valid_form.save()
+            return HttpResponseRedirect('/movies/all_movies')
 
     genres = Genre.objects.all()
 

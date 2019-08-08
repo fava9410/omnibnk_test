@@ -3,6 +3,7 @@
   {% block content %}
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <section class="banner_area">
       <div class="box_1620">
@@ -26,6 +27,7 @@
                               <th data-data="director">Director</th>
                               <th data-data="genre">Genre</th>
                               <th data-data="released_date">Released Date</th>
+                              <th data-data="id">Events</th>
                           </tr>
                       </thead>
                   </table>
@@ -36,6 +38,7 @@
 
   <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
   <script src="{% static 'js/list_all_movies.js' %}"></script>
   {% endblock %}
 |
